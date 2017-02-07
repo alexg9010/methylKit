@@ -271,6 +271,10 @@ getTabixByOverlap<-function(tbxFile,granges,return.type="data.table"){
 headTabix<-function(tbxFile,nrow=10,return.type="data.table"){
   
   if( class(tbxFile) != "TabixFile" ){
+    if(!file.exists(paste0(tbxFile,".tbi"))) 
+    {  
+      Rsamtools::indexTabix(tbxFile,seq=1, start=2, end=3, comment="#", zeroBased=FALSE)
+    }
     tbxFile <- TabixFile(tbxFile)
     open(tbxFile)
   }
