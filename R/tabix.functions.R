@@ -242,6 +242,9 @@ obj2tabix <- function(obj,filename,rm.txt=TRUE){
   # then we write the creation date ..
   write(paste0("#Date:",format(Sys.time(),'%Y-%m-%d %H:%M:%S')),
         file = filename)
+  # add the class of the object
+  write(paste0("#Class:",class(methylBase.obj)[1]),
+        file = filename, append = TRUE)
   # and the slots as comments 
   write(paste0("#",tabixHead),
         file = filename ,append = TRUE)
@@ -292,6 +295,11 @@ readTabixHeader <- function(tbxFile) {
   )
   
   headerVals <- headerVals[!isEmpty(headerVals)]
+  
+  # parse the object class 
+  class <- unlist(sapply((strsplit(gsub("#", "", h),split = ":")), function(x) if(x[1]=="Class") return(x[2])))
+  
+  headerVals$class <- class
   
   return(headerVals)
   
