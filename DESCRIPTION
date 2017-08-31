@@ -79,6 +79,7 @@ Collate:
     'tabix.functions.R'
     'methSeg.R'
     'diffMethDSS.R'
+    'markerCount.R'
     'deprecated_defunct.R'
     'onUnload.R'
 RoxygenNote: 6.0.1
