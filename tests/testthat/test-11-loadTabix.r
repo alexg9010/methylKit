@@ -19,10 +19,10 @@ methidh=unite(myobj)
 
 methdiff <- calculateDiffMeth(methidh)
 
-write2tabix(myobj[[1]],file.name = "methylDB/my_raw.txt",rm.txt = FALSE)
-write2tabix(mydblist[[1]],file.name = "methylDB/my_raw2.txt",rm.txt = FALSE)
-write2tabix(methidh,file.name = "methylDB/my_base.txt",rm.txt = FALSE)
-write2tabix(methdiff,file.name = "methylDB/my_diff.txt",rm.txt = FALSE)
+obj2tabix(myobj[[1]],file.name = "methylDB/my_raw.txt",rm.txt = FALSE)
+obj2tabix(mydblist[[1]],file.name = "methylDB/my_raw2.txt",rm.txt = FALSE)
+obj2tabix(methidh,file.name = "methylDB/my_base.txt",rm.txt = FALSE)
+obj2tabix(methdiff,file.name = "methylDB/my_diff.txt",rm.txt = FALSE)
 
 no_header <- system.file("extdata", "ctrl1.txt.bgz", package = "methylKit")
 
